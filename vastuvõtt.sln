@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35209.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "vastuvõtt", "vastuvõtt\vastuvõtt.pyproj", "{708DB0F3-92CE-4AF1-AF7E-E766C80954FE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{708DB0F3-92CE-4AF1-AF7E-E766C80954FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{708DB0F3-92CE-4AF1-AF7E-E766C80954FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2830A187-1656-449F-8EF2-A697CF6156A5}
+	EndGlobalSection
+EndGlobal

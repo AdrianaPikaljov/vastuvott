@@ -1,0 +1,23 @@
+Kui palju on 5 + 3?: 8
+
+Mis on Eesti suurim järv?: Peipsi järv
+
+Kus asub Eiffeli torn?: Pariisis
+
+Mis on Eesti rahvuspüha?: 24. veebruar
+
+Mis aasta on enne 2025. aastat?: 2024
+
+Mis on Python?: Programmeerimiskeel
+
+Mis on Eesti pealinn?: Tallinn
+
+Mis on vee keemistemperatuur Celsiuse järgi?: 100
+
+Mis on Eesti rahvuslill?: Rukkilill
+
+Mis on Eesti rahvuslind?: Suitsupääsuke
+
+Mis on Vene rahvusloom?: Karu
+
+Kus asub E korpus?:TTHK
