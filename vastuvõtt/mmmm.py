@@ -58,7 +58,7 @@ def testi_tegemine():
             continue
 
         vastajad.append(nimi) #lisab nimekirja loppu
-        valitud_kysimused = random.sample(list(kysimused.items()), kysimuste_arv)
+        valitud_kysimused = random.sample(list(kysimused.items()), kysimuste_arv)  #valib juhuslikult küsimused ja kysimused teeme listiks sest random.sample 
         oigesti = 0
 
         # Küsimuste esitamine
