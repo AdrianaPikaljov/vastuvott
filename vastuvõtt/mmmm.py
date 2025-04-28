@@ -3,6 +3,8 @@ import smtplib
 from email.message import EmailMessage
 import ssl
 
+
+
 # Funktsioon e-kirja saatmiseks
 def saada_email(teade_emailile, teema, sisu):
     server = 'smtp.gmail.com'
@@ -34,7 +36,7 @@ def loe_kysimused():
     with open("kusimused_vastused.txt", "r", encoding="utf-8") as f:
         for rida in f:
             if ":" in rida:
-                kysimus, vastus = rida.strip().split(":", 1)
+                kysimus, vastus = rida.strip().split(":", 1) #strip() eemaldab tühikud ja reavahed ja split() jagab küsimuse ja vastuse
                 kysimused[kysimus.strip()] = vastus.strip()
     return kysimused
 
@@ -42,12 +44,12 @@ def loe_kysimused():
 def testi_tegemine():
     kysimused = loe_kysimused()
     vastajad = []
-    osalejate_arv = 3
+    osalejate_arv = 2
     kysimuste_arv = 5
-    koondaruanne = []  # Salvestame kõik tulemused koondaruande jaoks
+
 
     for i in range(osalejate_arv):
-        print(f"\nOsaleja {i+1}")
+        print(f"\nOsaleja {i+1}") #i algab 0-st, seega +1, \n teeb reavahet
         nimi = input("Sisesta oma nimi: ")
         email = input("Sisesta oma e-mail: ")
 
@@ -55,7 +57,7 @@ def testi_tegemine():
             print("See nimi on juba kasutusel.")
             continue
 
-        vastajad.append(nimi)
+        vastajad.append(nimi) #lisab nimekirja loppu
         valitud_kysimused = random.sample(list(kysimused.items()), kysimuste_arv)
         oigesti = 0
 
@@ -68,7 +70,7 @@ def testi_tegemine():
         tulemus = f"{nimi} – {oigesti} õigesti"
 
         # Salvestamine vastavalt tulemusele
-        if oigesti >= (kysimuste_arv // 2 + 1):
+        if oigesti >= (kysimuste_arv // 2 + 1): #loetakse nullist selle parast +1 ja loetakse ainult taisarve
             with open("vastuvõetud.txt", "a", encoding="utf-8") as f:
                 f.write(tulemus + "\n")
             seis = "Test edukalt sooritatud."
@@ -86,32 +88,10 @@ def testi_tegemine():
         sisu = f"Tere {nimi}!\nSaid õigesti {oigesti} küsimust.\n{seis}"
         saada_email(email, teema, sisu)
 
-        koondaruanne.append((nimi, oigesti, email, seis))
 
     print("\nKõik testid on tehtud.")
     print("Tulemused saadetud e-posti aadressidele.")
 
-        # Tööandjale saatmine
-    saadetav_koondaruanne = "\n".join([f"{i+1}. {k[0]} - {k[1]} punkti - {k[2]} - {'SOBIB' if k[1] >= (kysimuste_arv // 2 + 1) else 'EI SOBI'}" for i, k in enumerate(koondaruanne)])
-    parim_kandidaat = max(koondaruanne, key=lambda x: x[1])
-
-    koondaruanne_sisu = f"""
-    Tere!
-
-    Allpool on nimekiri kõigist tänases sessioonis testitud kandidaatidest:
-
-    {saadetav_koondaruanne}
-
-    Parim kandidaat: {parim_kandidaat[0]} ({parim_kandidaat[1]} punkti)
-
-    Lugupidamisega,
-    Automaatne Testimissüsteem
-    """
-
-    # Saadame koondaruande tööandjale
-    teema = "Testitulemuste koondaruanne"
-    tööandja_email = "tootaja@firma.ee"
-    saada_email(tööandja_email, teema, koondaruanne_sisu)
 
 # Funktsioon uue küsimuse lisamiseks
 def lisa_kysimus():
@@ -120,23 +100,3 @@ def lisa_kysimus():
     with open("kusimused_vastused.txt", "a", encoding="utf-8") as f:
         f.write(uus + ":" + vastus + "\n")
     print("Küsimus lisatud!")
-
-
-# Peamenüü
-def menuu():
-    while True:
-        print("\n1. Alusta testi")
-        print("2. Lisa uus küsimus")
-        print("3. Välju")
-
-        valik = input("Vali tegevus (1-3): ")
-        if valik == "1":
-            testi_tegemine()
-        elif valik == "2":
-            lisa_kysimus()
-        elif valik == "3":
-            print("Programmist väljumine.")
-            break
-        else:
-            print("Vale valik. Proovi uuesti.") 
-menuu()
